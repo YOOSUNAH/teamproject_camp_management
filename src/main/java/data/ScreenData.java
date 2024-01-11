@@ -1,8 +1,6 @@
 package data;
 
-import java.util.List;
-
-public enum Information {
+public enum ScreenData {
     Student_Name,
     Student_idNumber,
    EssentialSubject,

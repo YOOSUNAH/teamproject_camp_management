@@ -11,7 +11,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(" ////////////////////");
+
+        System.out.println("=======내배캠 관리에 오신것을 환영합니다.==========");
+        System.out.println("1.수강생 정보 입력하기");
+        System.out.println("2.수강생 정보 조회하기");
+        System.out.println("3.수강생의 과목별 시험 회차 및 점수를 등록하기");
+        System.out.println("4.수강생 과목별 회차 점수 수정하기");
+        System.out.println("5.수강생의 특정 과목 회차별 등급을 조회");
+
+        String input = sc.nextLine();
+//
+//        switch(input){
+//            case("1"): 해당 메서드 호출
+//                break;
+//            case("2"):
+//                break;
+//            case("3"):
+//                break;
+//            case("4"):
+//                break;
+//            case("5"):
+//                break;
+//            default:
+//
+//                break;
+//        }
+
         System.out.println("1. 수강생 정보 등록하기 + 2. 수강생 정보 찾기");
 
         System.out.println("수강생 고유번호를 입력해주세요");
@@ -40,13 +65,12 @@ public class Main {
         }
 
 
-
         System.out.println("찾고자 하는 수강생의 고유 번호를 입력해주세요");
         String searchStudentId = sc.nextLine();
         System.out.println("찾고자 하는 수강생의 이름을 입력해주세요");
         String searchStudentName = sc.nextLine();
 
-        if (searchStudentId.equals(studentId) && searchStudentName.equals(studentName)){
+        if (searchStudentId.equals(studentId) && searchStudentName.equals(studentName)) {
             System.out.println("수강생 아이디 : " + student.getStudentId());
             System.out.println("수강생 이름 : " + student.getStudentName());
             System.out.println("수강한 과목:");
@@ -56,6 +80,8 @@ public class Main {
             }
         }
     }
+
+
 
 
 }
