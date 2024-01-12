@@ -29,40 +29,7 @@ public class ScreenStage {
         screenStageMap.put(ScreenData.Input_Student_Name, "수강생 이름을 입력해주세요");
         screenStageMap.put(ScreenData.SelectSubjectE, "필수 과목을 3개 이상 선택헤주세요. (과목명만 입력해 주세요.)");
         screenStageMap.put(ScreenData.SelectSubjectO, "선택 과목을 2개 이상 선택헤주세요.  (과목명만 입력해 주세요.)");
-        screenStageMap.put(ScreenData.subjectTypeA, "필수");
-        screenStageMap.put(ScreenData.subjectTypeB, "선택");
         screenStageMap.put(ScreenData.Find_Student_Name, "찾고자 하는 수강생의 고유 번호를 입력해주세요.");
         screenStageMap.put(ScreenData.Find_Student_IdNumber, "찾고자 하는 수강생의 이름을 입력해주세요.");
-        screenStageMap.put(ScreenData.EssentialSubject,
-                "1. Java\n" +
-                "2. 객체지향\n" +
-                "3. Spring\n" +
-                "4. JPA\n" +
-                "5. MySQL");
-
-        screenStageMap.put(ScreenData.EssentialSubject_1, "Java\n");
-        screenStageMap.put(ScreenData.EssentialSubject_2, "객체지향\n");
-        screenStageMap.put(ScreenData.EssentialSubject_3, "Spring\n");
-        screenStageMap.put(ScreenData.EssentialSubject_4, "JPA\n");
-        screenStageMap.put(ScreenData.EssentialSubject_5, "MySQL\n");
-        screenStageMap.put(ScreenData.OptionalSubject,
-                "1. 디자인_패턴 \n" +
-                "2. Spring_Security\n" +
-                "3. Redis\n" +
-                "4. MongoDB");
-
-        screenStageMap.put(ScreenData.OptionalSubject_1, "디자인 패턴\n");
-        screenStageMap.put(ScreenData.OptionalSubject_2, "Spring Security\n");
-        screenStageMap.put(ScreenData.OptionalSubject_3, "Redis\n");
-        screenStageMap.put(ScreenData.OptionalSubject_4, "MongoDB\n");
-        screenStageMap.put(ScreenData.AskKeepOrStop, "1. 계속 선택하시겠습니가?   2. 그만 선택 하시겠습니까?  (번호만 입력해 주세요)\n");
-
-
-
-
-
-
-
-
     }
 }

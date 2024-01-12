@@ -19,6 +19,8 @@ public class SaveStudentInform {
         screenService.inputStudentName();
         String studentName = sc.nextLine();
 
+
+
         Student student = new Student(studentId, studentName);
         student.addToStudentCard();
 
@@ -28,7 +30,13 @@ public class SaveStudentInform {
         // 필수 과목 선택  (3개 미만까지는 계속 while문)
         while (true) {
             screenService.selectSubjectE();
-            screenService.essentialSubject();
+            System.out.println( "1." + common.enumeration.Subject.JAVA);
+            System.out.println( "2." + common.enumeration.Subject.OOP);
+            System.out.println( "3." + common.enumeration.Subject.SPRING);
+            System.out.println( "4." + common.enumeration.Subject.JPA);
+            System.out.println( "5." + common.enumeration.Subject.MYSQL);
+
+
             String subjectName = sc.nextLine();
             subjectE.makeEssentialSubjectList(studentId, subjectName);
 
@@ -45,7 +53,11 @@ public class SaveStudentInform {
         Subject subjectO = new Subject(studentId, "");
         while (true) {
             screenService.selectSubjectO();
-            screenService.optionalSubject();
+            System.out.println( "1." + common.enumeration.Subject.DESIGNPATTERN);
+            System.out.println( "2." + common.enumeration.Subject.SPRINGSEQURITY);
+            System.out.println( "3." + common.enumeration.Subject.REDIS);
+            System.out.println( "4." + common.enumeration.Subject.MONGODB);
+
             String subjectName = sc.nextLine();
             subjectO.makeOptionalSubjectList(studentId, subjectName);
 
