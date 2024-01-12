@@ -8,8 +8,5 @@ public enum ScreenData {
     Find_Student_IdNumber,
     SelectSubjectE,
     SelectSubjectO,
-
-
-
     AskKeepOrStop;
 }

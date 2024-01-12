@@ -33,4 +33,7 @@ public class ScreenService {
     public void findStudentName(){
         print(screenStage.getScreenStage(ScreenData.Find_Student_Name));
     }
+    public void askKeepOrStop(){
+        print(screenStage.getScreenStage(ScreenData.AskKeepOrStop));
+    }
 }
