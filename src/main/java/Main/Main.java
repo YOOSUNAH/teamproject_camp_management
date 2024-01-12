@@ -1,8 +1,10 @@
 package Main;
 
+import Service.ScreenService;
 import domain.Student;
 import domain.Subject;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,16 +13,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("=======내배캠 관리에 오신것을 환영합니다.==========");
-        System.out.println("1.수강생 정보 입력하기");
-        System.out.println("2.수강생 정보 조회하기");
-        System.out.println("3.수강생의 과목별 시험 회차 및 점수를 등록하기");
-        System.out.println("4.수강생 과목별 회차 점수 수정하기");
-        System.out.println("5.수강생의 특정 과목 회차별 등급을 조회");
-
-        String input = sc.nextLine();
-//
+        ScreenService screenService = new ScreenService();
+//        screenService.mainPage();
+//        String input = sc.nextLine();
+//while(true){
 //        switch(input){
 //            case("1"): 해당 메서드 호출
 //                break;
@@ -36,38 +32,61 @@ public class Main {
 //
 //                break;
 //        }
+//    }
 
-        System.out.println("1. 수강생 정보 등록하기 + 2. 수강생 정보 찾기");
-
-        System.out.println("수강생 고유번호를 입력해주세요");
+        // 1.수강생 정보 입력하기
+        screenService.inputStudentIdNumber();
         String studentId = sc.nextLine();
-        System.out.println("수강생 이름을 입력해주세요");
+        screenService.inputStudentName();
         String studentName = sc.nextLine();
 
         Student student = new Student(studentId, studentName);
+        student.addToStudentCard();
 
-        student.addToStudentCard(studentId, studentName);
+        // 2.수강생 과목 입력하기
+        Subject subjectE = new Subject(studentId, "");
 
-        System.out.println("과목을 몇 개 선택하시겠습니까?");
-        int numSubjects = sc.nextInt();
-        sc.nextLine();
-
-        List<Subject> subjects = new ArrayList<>();
-
-        for (int i = 1; i <= numSubjects; i++) {
-            System.out.println("(" + i + ") 선택한 과목을 입력해 주세요.");
+        // 필수 과목 선택  (3개 미만까지는 계속 while문)
+        while (true) {
+            screenService.selectSubjectE();
+            screenService.essentialSubject();
             String subjectName = sc.nextLine();
-            System.out.println("선택한 과목의 타입을(필수/선택) 입력해 주세요");
-            String subjectType = sc.nextLine();
+            subjectE.makeEssentialSubjectList(studentId, subjectName);
 
-            Subject subject = new Subject(studentId, subjectName, subjectType);
-            subjects.add(subject);
+            List<String> selectedEssentialSubjects = subjectE.getEessentialSubjectList(studentId);
+            if (selectedEssentialSubjects.size() >= 3) {
+                System.out.println("1. 계속 선택   2. 그만 선택");
+                String keepOrStop = sc.nextLine();
+                if (keepOrStop.equals("2")) {
+                    break;
+                }
+            }
+        }
+
+        // 선택과목 선택
+        Subject subjectO = new Subject(studentId, "");
+
+        while (true) {
+            screenService.selectSubjectO();
+            screenService.optionalSubject();
+            String subjectName = sc.nextLine();
+            subjectO.makeOptionalSubjectList(studentId, subjectName);
+
+            List<String> selectedOptionalSubjects = subjectO.getOptionalSubjectList(studentId);
+            if (selectedOptionalSubjects.size() >= 2) {
+                System.out.println("1. 계속 선택하시겠습니가?   2. 그만 선택 하시겠습니까?  (번호만 입력해 주세요)");
+                String keepOrStop = sc.nextLine();
+                if (keepOrStop.equals("2")) {
+                    break;
+                }
+            }
         }
 
 
-        System.out.println("찾고자 하는 수강생의 고유 번호를 입력해주세요");
+        // 3.수강생 정보 조회하기
+        screenService.findStudentIdNumber();
         String searchStudentId = sc.nextLine();
-        System.out.println("찾고자 하는 수강생의 이름을 입력해주세요");
+        screenService.findStudentName();
         String searchStudentName = sc.nextLine();
 
         if (searchStudentId.equals(studentId) && searchStudentName.equals(studentName)) {
@@ -75,13 +94,9 @@ public class Main {
             System.out.println("수강생 이름 : " + student.getStudentName());
             System.out.println("수강한 과목:");
 
-            for (Subject subject : subjects) {
-                System.out.println(subject.getSubjectName() + " (" + subject.getSubjectType() + ")");
-            }
+
         }
     }
-
-
 
 
 }
