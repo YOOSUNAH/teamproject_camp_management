@@ -1,40 +1,40 @@
 package service;
 
-import common.enumeration.Times;
 import common.enumeration.Type;
 
 import java.util.List;
 
+
 public class CalculateService {
 
-    public char calculateRequiredGrade(int requiredScore) {
+    public char calculateEssentialGrade(int essentialScore) {
         char grade = ' ';
-        if (requiredScore >= 95 && requiredScore <=100)
+        if (essentialScore >= 95 && essentialScore <=100)
             grade = 'A';
-        else if (requiredScore >= 90 && requiredScore <= 94)
+        else if (essentialScore >= 90 && essentialScore <= 94)
             grade = 'B';
-        else if (requiredScore >= 80 && requiredScore <= 89)
+        else if (essentialScore >= 80 && essentialScore <= 89)
             grade = 'C';
-        else if (requiredScore >= 70 && requiredScore <= 79)
+        else if (essentialScore >= 70 && essentialScore <= 79)
             grade = 'D';
-        else if (requiredScore >= 60 && requiredScore<=69)
+        else if (essentialScore >= 60 && essentialScore<=69)
             grade = 'F';
         else
             grade = 'N';
         return grade;
     }
 
-    public char calculateElectiveGrade(int electiveScore) {
+    public char calculateOptionalGrade(int optionalScore) {
         char grade=' ';
-        if (electiveScore >= 90 && electiveScore <= 100)
+        if (optionalScore >= 90 && optionalScore <= 100)
            grade = 'A';
-        else if (electiveScore >= 80 && electiveScore <= 89)
+        else if (optionalScore >= 80 && optionalScore <= 89)
             grade = 'B';
-        else if (electiveScore >= 70 && electiveScore <= 79)
+        else if (optionalScore >= 70 && optionalScore <= 79)
             grade = 'C';
-        else if (electiveScore >= 60)
+        else if (optionalScore >= 60)
             grade = 'D';
-        else if (electiveScore >= 50)
+        else if (optionalScore >= 50)
             grade = 'F';
         else
             grade = 'N';
@@ -48,7 +48,7 @@ public class CalculateService {
             sum += integer;
         }
         avgScore = sum / scoreList.size();
-        return type.equals(Type.REQUIRED) ? calculateRequiredGrade(avgScore) : calculateElectiveGrade(avgScore);
+        return type.equals(Type.ESSENTIAL_SUBJECT) ? calculateEssentialGrade(avgScore) : calculateOptionalGrade(avgScore);
     }
 
     // 학생, 회차별 평균
