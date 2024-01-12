@@ -1,6 +1,5 @@
 package common.enumeration;
 
-
 public enum Subject {
     JAVA(Type.ESSENTIAL_SUBJECT),
     OOP(Type.ESSENTIAL_SUBJECT),
