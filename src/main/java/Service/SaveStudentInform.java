@@ -12,13 +12,12 @@ public class SaveStudentInform {
     Scanner sc = new Scanner(System.in);
     ScreenService screenService = new ScreenService();
 
-    public void saveStudentInform(){
+    public void saveStudentInform() {
         // 1.수강생 정보 입력하기
         screenService.inputStudentIdNumber();
         String studentId = sc.nextLine();
         screenService.inputStudentName();
         String studentName = sc.nextLine();
-
 
 
         Student student = new Student(studentId, studentName);
@@ -30,11 +29,11 @@ public class SaveStudentInform {
         // 필수 과목 선택  (3개 미만까지는 계속 while문)
         while (true) {
             screenService.selectSubjectE();
-            System.out.println( "1." + common.enumeration.Subject.JAVA);
-            System.out.println( "2." + common.enumeration.Subject.OOP);
-            System.out.println( "3." + common.enumeration.Subject.SPRING);
-            System.out.println( "4." + common.enumeration.Subject.JPA);
-            System.out.println( "5." + common.enumeration.Subject.MYSQL);
+            System.out.println("1." + common.enumeration.Subject.JAVA);
+            System.out.println("2." + common.enumeration.Subject.OOP);
+            System.out.println("3." + common.enumeration.Subject.SPRING);
+            System.out.println("4." + common.enumeration.Subject.JPA);
+            System.out.println("5." + common.enumeration.Subject.MYSQL);
 
 
             String subjectName = sc.nextLine();
@@ -42,7 +41,7 @@ public class SaveStudentInform {
 
             List<String> selectedEssentialSubjects = subjectE.getEessentialSubjectList(studentId);
             if (selectedEssentialSubjects.size() >= 3) {
-                System.out.println("1. 계속 선택하시겠습니가?   2. 그만 선택 하시겠습니까?  (번호만 입력해 주세요)");
+                screenService.askKeepOrStop();
                 String keepOrStop = sc.nextLine();
                 if (keepOrStop.equals("2")) {
                     break;
@@ -53,17 +52,17 @@ public class SaveStudentInform {
         Subject subjectO = new Subject(studentId, "");
         while (true) {
             screenService.selectSubjectO();
-            System.out.println( "1." + common.enumeration.Subject.DESIGNPATTERN);
-            System.out.println( "2." + common.enumeration.Subject.SPRINGSEQURITY);
-            System.out.println( "3." + common.enumeration.Subject.REDIS);
-            System.out.println( "4." + common.enumeration.Subject.MONGODB);
+            System.out.println("1." + common.enumeration.Subject.DESIGNPATTERN);
+            System.out.println("2." + common.enumeration.Subject.SPRINGSEQURITY);
+            System.out.println("3." + common.enumeration.Subject.REDIS);
+            System.out.println("4." + common.enumeration.Subject.MONGODB);
 
             String subjectName = sc.nextLine();
             subjectO.makeOptionalSubjectList(studentId, subjectName);
 
             List<String> selectedOptionalSubjects = subjectO.getOptionalSubjectList(studentId);
             if (selectedOptionalSubjects.size() >= 2) {
-                System.out.println("1. 계속 선택하시겠습니가?   2. 그만 선택 하시겠습니까?  (번호만 입력해 주세요)");
+                screenService.askKeepOrStop();
                 String keepOrStop = sc.nextLine();
                 if (keepOrStop.equals("2")) {
                     break;
