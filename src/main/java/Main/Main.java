@@ -4,11 +4,7 @@ import Service.SaveStudentInform;
 import Service.ScreenService;
 import Service.SearchStudentInform;
 import domain.Student;
-import domain.Subject;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
