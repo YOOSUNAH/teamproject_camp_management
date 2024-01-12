@@ -1,21 +1,20 @@
 package common.enumeration;
 
 public enum Subject {
-    JAVA("Java",Type.REQUIRED),
-    OOP("Oop",Type.REQUIRED),
-    SPRING("Spring",Type.REQUIRED),
-    JPA("Jpa",Type.REQUIRED),
-    MYSQL("Mysql",Type.REQUIRED),
-    DESIGNPATTERN("Designpattern",Type.ELECTIVE),
-    SPRINGSEQURITY("Springsequrity",Type.ELECTIVE),
-    REDIS("Redis",Type.ELECTIVE),
-    MONGODB("Mongodb",Type.ELECTIVE);
+    JAVA(Type.ESSENTIAL_SUBJECT),
+    OOP(Type.ESSENTIAL_SUBJECT),
+    SPRING(Type.ESSENTIAL_SUBJECT),
+    JPA(Type.ESSENTIAL_SUBJECT),
+    MYSQL(Type.ESSENTIAL_SUBJECT),
+    DESIGNPATTERN(Type.OPTIONAL_SUBJECT),
+    SPRINGSEQURITY(Type.OPTIONAL_SUBJECT),
+    REDIS(Type.OPTIONAL_SUBJECT),
+    MONGODB(Type.OPTIONAL_SUBJECT);
 
-    private final String name;
     private final Type type;
 
-    Subject(String name, Type type){
-        this.name = name;
+    Subject( Type type){
+
         this.type = type;
     }
 }
