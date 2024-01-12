@@ -7,7 +7,6 @@ import java.util.List;
 
 public class CalculateService {
 
-
     public char calculateRequiredGrade(int requiredScore) {
         char grade = ' ';
         if (requiredScore >= 95 && requiredScore <=100)
