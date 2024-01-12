@@ -3,9 +3,8 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
-    <file type="web" url="file://$PROJECT_DIR$/camp-management-app" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="zulu-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" default="true">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
