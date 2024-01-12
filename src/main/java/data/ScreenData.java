@@ -35,6 +35,6 @@ public enum ScreenData {
     subjectTypeB,
 
     MainPage,
-    SelectSubject;
-
+    SelectSubject,
+    AskKeepOrStop;
 }
