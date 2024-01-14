@@ -33,6 +33,14 @@ public class Student {
     public String getStudentName() {
         return studentName;
     }
+
+    public List<SubjectType> essentialSubjects(){
+        return essentialSubjects;
+    }
+
+    public List<SubjectType> optionalSubjects(){
+        return optionalSubjects;
+    }
 }
 
 

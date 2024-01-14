@@ -90,7 +90,8 @@ public class SaveStudentInform {
     public void searchStudentInform() {
         screenService.findStudentIdNumber();
         String searchStudentId = sc.nextLine();
-        Store.findStudent(searchStudentId);
+        Student student = Store.findStudent(searchStudentId);
+        System.out.println("필수 과목 : " + student.essentialSubjects() +"\n선택 과목 : "+ student.optionalSubjects());
     }
 }
 
