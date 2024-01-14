@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SaveStudentInform {
+public class StudentAppender {
     Scanner sc = new Scanner(System.in);
     ScreenService screenService = new ScreenService();
 
-    public void saveStudentInform() {
+    public void append() {
         // 1.수강생 정보 입력하기
         screenService.inputStudentIdNumber();
         String studentId = sc.nextLine();
@@ -85,13 +85,6 @@ public class SaveStudentInform {
             }
         }
         return essentialSubjects;
-    }
-
-    public void searchStudentInform() {
-        screenService.findStudentIdNumber();
-        String searchStudentId = sc.nextLine();
-        Student student = Store.findStudent(searchStudentId);
-        System.out.println("필수 과목 : " + student.essentialSubjects() +"\n선택 과목 : "+ student.optionalSubjects());
     }
 }
 
