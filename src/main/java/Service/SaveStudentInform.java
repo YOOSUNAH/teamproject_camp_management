@@ -12,6 +12,7 @@ public class SaveStudentInform {
     Scanner sc = new Scanner(System.in);
     ScreenService screenService = new ScreenService();
 
+    String ID = "";
     public void saveStudentInform() {
         // 1.수강생 정보 입력하기
         screenService.inputStudentIdNumber();
@@ -69,6 +70,11 @@ public class SaveStudentInform {
                 }
             }
         }
+        ID =studentId;
+    }
+
+    public String getID(){
+        return ID;
 
     }
 }
