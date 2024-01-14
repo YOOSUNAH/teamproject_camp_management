@@ -1,6 +1,7 @@
 package common.enumeration;
 
-public enum Subject {
+public enum SubjectType {
+
     JAVA(Type.ESSENTIAL_SUBJECT),
     OOP(Type.ESSENTIAL_SUBJECT),
     SPRING(Type.ESSENTIAL_SUBJECT),
@@ -13,7 +14,7 @@ public enum Subject {
 
     private final Type type;
 
-    Subject( Type type){
+    SubjectType(Type type){
 
         this.type = type;
     }
