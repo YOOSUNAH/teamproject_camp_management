@@ -5,59 +5,35 @@ import domain.Score;
 import domain.Student;
 import store.Store;
 
-import javax.security.auth.Subject;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class ScoreAppender {
-
     Scanner sc = new Scanner(System.in);
     ScreenService screenService = new ScreenService();
-
-    public void RecordScore(){
+    public void scoreAppend(){
         Scanner sc = new Scanner(System.in);
-
         screenService.inputStudentIdNumber();
         Integer studentId = Integer.parseInt(sc.nextLine());
         screenService.inputStudentName();
         String studentName = sc.nextLine();
-
         System.out.print("과목 입력:");
-        String essentialSubjects  = sc.nextLine();
+        String subject  = sc.nextLine();
         System.out.print("회차 입력:");
-        Integer timesE = sc.nextInt();
+        Integer round = sc.nextInt();
         System.out.print("점수 입력:");
-        Integer scoresE = sc.nextInt();
-        Integer essentialRecordScore = scoresE;
-
-        System.out.print("과목 입력:");
-        String optionalSubjects  = sc.nextLine();
-        System.out.print("회차 입력:");
-        Integer timesO = sc.nextInt();
-        System.out.print("점수 입력:");
-        Integer scoresO = sc.nextInt();
-        Integer optionalRecordScore= scoresO;
-
-        Map<Integer, Integer> essentialSubjectsScores = null;
-        essentialSubjectsScores.put(timesE, essentialRecordScore);
-
-        Map<Integer, Integer> optionalSubjectsScores = null;
-        optionalSubjectsScores.put(timesO, scoresO);
+        Integer score = sc.nextInt();
 
         Student student = new Student();
-        Score score = new Score();
+        SubjectType essentialSubject = SubjectType.valueOf(subject);
+        SubjectType optionalSubject = SubjectType.valueOf(subject);
 
-        if( student.getStudentId().equals(studentId)&& student.getStudentName().equals(studentName))
-        for (SubjectType subject:  student.essentialSubjects()) {
-            if(subject.equals(essentialSubjects)){
-                essentialTimesScores
-                Store.essentialSubjectsScores(score, essentialSubjects, timesE, scoresE);
+        if(student.getStudentId().equals(studentId)&& student.getStudentName().equals(studentName))
+        for (SubjectType subjectT: student.essentialSubjects()) {
+            if(subjectT == essentialSubject || subjectT == optionalSubject){
+                Store.addScore(studentId, subject, round, score);
+
             }
         }
-    // score 추가 (과목 , (회차, 점수))
     }
-
-
 }

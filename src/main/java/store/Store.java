@@ -4,6 +4,7 @@ import domain.Score;
 import domain.Student;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Store {
@@ -28,11 +29,12 @@ public class Store {
         return students.containsKey(studentId);
     }
 
-    public static Integer essentialSubjectsScores(Score score, String subjects, Integer times, Integer scores) {
-        return score.essentialSubjectsScores(subjects, times, scores).put(subjects, times);
+    private static Map<Integer, Map<String, List<Integer, Integer>>>  studentExamRoundResult = new HashMap<>;
+
+    public static Integer addScore(Integer studentId, String subjects, Integer round, Integer scores) {
+            return studentExamRoundResult.put(studentId, Map<subjects, List<round, scores>>);
+
     }
-    public Map<Integer, Integer>  essentialTimesScores(Score score, Integer times, Integer scores) {
-    return score.essentialTimesScores(times, scores);
-    }
+
 
 }
