@@ -39,11 +39,11 @@ public class Student {
         return studentName;
     }
 
-    public List<SubjectType> essentialSubjects(){
+    public List<SubjectType> getEssentialSubjects(){
         return essentialSubjects;
     }
 
-    public List<SubjectType> optionalSubjects(){
+    public List<SubjectType> getOptionalSubjects(){
         return optionalSubjects;
     }
 

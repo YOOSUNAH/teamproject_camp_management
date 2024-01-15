@@ -1,7 +1,6 @@
-package Main;
+package main;
 
-import Service.*;
-import domain.Score;
+import service.*;
 
 import java.util.Scanner;
 
