@@ -34,7 +34,7 @@ public class StudentAppender {
 
     private List<SubjectType> addOptionalSubjects() {
         List<SubjectType> optionalSubjects = new ArrayList<>();
-        // 선택과목 선택
+        // 과목 선택
         while (true) {
             screenService.selectSubjectO();
             System.out.println("1." + SubjectType.DESIGNPATTERN);
