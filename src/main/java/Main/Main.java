@@ -22,6 +22,7 @@ public class Main {
             switch (input) {
                 case ("1"):   // 1. 수강생 정보 및 과목 입력하기
                     studentAppender.append();
+                    putScore.setInitialScoreData(studentAppender.getIDforscore());
                     break;
                 case ("2"):   // 2. 수강생 정보 조회하기
                     studentReader.read();
