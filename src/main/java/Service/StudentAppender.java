@@ -17,7 +17,7 @@ public class StudentAppender {
     public void append() {
         // 1.수강생 정보 입력하기
         screenService.inputStudentIdNumber();
-        Integer studentId = sc.nextInt();
+        Integer studentId = Integer.parseInt(sc.nextLine());
         Integer ID = studentId;
         screenService.inputStudentName();
         String studentName = sc.nextLine();
