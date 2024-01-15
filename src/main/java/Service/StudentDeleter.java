@@ -1,21 +1,20 @@
 package Service;
 
-import common.enumeration.SubjectType;
 import domain.Student;
 import store.Store;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class StudentReader {
+public class StudentDeleter {
     Scanner sc = new Scanner(System.in);
     ScreenService screenService = new ScreenService();
-    public void read() {
-        screenService.findStudentIdNumber();
+    public void delete() {
+        screenService.inputStudentIdNumber();
         String searchStudentId = sc.nextLine();
-        Student student = Store.findStudent(searchStudentId);
-        System.out.println("필수 과목 : " + student.essentialSubjects() +"\n선택 과목 : "+ student.optionalSubjects());
+        Student student = Store.deleteStudent(searchStudentId);
+        System.out.println(student.getStudentName() + " 수강생의 정보가 삭제되었습니다.");
+
+
     }
 }
 
