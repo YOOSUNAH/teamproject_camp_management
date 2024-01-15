@@ -17,27 +17,29 @@ public class StudentAppender {
     public void append() {
         // 1.수강생 정보 입력하기
 
-        boolean idcheck = true;
-
+        boolean idcheck = true;  //중복? OR NO중복?
 
         //여기서 입력받은 studentId가 기존생성되어있던 student 객체의 studentId와 중복한다면 걸러내는 조건문을 만들어보자 by일하
-        Integer studentId = null;
+        Integer studentId=0;
+        Integer ID;
         while (idcheck) {
             screenService.inputStudentIdNumber();
             studentId = Integer.parseInt(sc.nextLine());
-            Integer ID = studentId;
+
 
 
             if (Store.returnkey(studentId)) {
                 System.out.println("ID값이 중복되었습니다. 다른 ID값을 입력해주세요."); //경고문구 출력
             } else {
                 idcheck = false;
-            }
 
+            }
         }
+        ID = studentId;
+
         //가능하면 이렇게 하지 말자 다음 프로젝트 부터는 ...
         // key값인 id '맵키 조회'
-        //애초에 student id를 우리가 정해서 절대로 겹치지 않도록 하는 장치가 필요함.
+        //애초에 student id를 우리가 정해서 절대로 겹치지 않도록 하는 장치가 필요하다고 하심..
 
 
         screenService.inputStudentName();
@@ -55,7 +57,6 @@ public class StudentAppender {
         );
 
         Store.addStudent(student);
-//        coin++;
     }
 
     private List<SubjectType> addOptionalSubjects() {
