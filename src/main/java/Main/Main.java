@@ -1,5 +1,6 @@
 package Main;
 
+import Service.CalculateService;
 import Service.StudentAppender;
 import Service.ScreenService;
 import Service.StudentReader;
@@ -15,6 +16,7 @@ public class Main {
         StudentAppender studentAppender = new StudentAppender();
         StudentReader studentReader = new StudentReader();
 
+        CalculateService calculateService = new CalculateService();
         while (true) {
             screenService.mainPage();
             String input = sc.nextLine();
@@ -30,6 +32,7 @@ public class Main {
                 case ("4"):  // 4. 수강생 과목별 회차 점수 수정하기
                     break;
                 case ("5"):  // 5. 수강생의 특정 과목 회차별 등급을 조회
+                    calculateService.getGradeBySubjectAndTimes();
                     break;
                 default: screenService.mainPage();
                     input = sc.nextLine();

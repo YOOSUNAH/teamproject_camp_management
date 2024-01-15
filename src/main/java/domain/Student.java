@@ -12,6 +12,8 @@ public class Student {
     private List<SubjectType> essentialSubjects;
     private List<SubjectType> optionalSubjects;
 
+    public Student(){}
+
 
     public Student(
         String studentId,

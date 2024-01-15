@@ -2,7 +2,7 @@ package Service;
 
 import common.enumeration.SubjectType;
 import domain.Student;
-import store.Store;
+import common.store.Store;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,15 +1,24 @@
-package service;
+package Service;
 
+import common.enumeration.SubjectType;
 import common.enumeration.Type;
+import common.store.Store;
+import domain.Student;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class CalculateService {
-
-    public char calculateEssentialGrade(int essentialScore) {
+    private Type type;
+    Student student = new Student();
+    List<Double> scoreList = new ArrayList<>();
+    Double score = 0.0;
+    Scanner scanner = new Scanner(System.in);
+    public char calculateEssentialGrade(Double essentialScore) {
         char grade = ' ';
-        if (essentialScore >= 95 && essentialScore <=100)
+        if (essentialScore >= 95 && essentialScore <= 100)
             grade = 'A';
         else if (essentialScore >= 90 && essentialScore <= 94)
             grade = 'B';
@@ -17,17 +26,17 @@ public class CalculateService {
             grade = 'C';
         else if (essentialScore >= 70 && essentialScore <= 79)
             grade = 'D';
-        else if (essentialScore >= 60 && essentialScore<=69)
+        else if (essentialScore >= 60 && essentialScore <= 69)
             grade = 'F';
         else
             grade = 'N';
         return grade;
     }
 
-    public char calculateOptionalGrade(int optionalScore) {
-        char grade=' ';
+    public char calculateOptionalGrade(Double optionalScore) {
+        char grade = ' ';
         if (optionalScore >= 90 && optionalScore <= 100)
-           grade = 'A';
+            grade = 'A';
         else if (optionalScore >= 80 && optionalScore <= 89)
             grade = 'B';
         else if (optionalScore >= 70 && optionalScore <= 79)
@@ -41,21 +50,41 @@ public class CalculateService {
         return grade;
     }
 
+    // 과목 점수별, 회차별 등급 조회
+    public char getGradeBySubjectAndTimes() {
+        String studentId =  scanner.nextLine();
+        String subjectId = scanner.nextLine();
+        student = Store.findStudent(studentId);
+//        subjectId  : subject 저장 구현되면 불러오는 로직 추가
+        type = SubjectType.getTypeBySubjectId(subjectId);
+        return type.equals(Type.ESSENTIAL_SUBJECT) ? calculateEssentialGrade(score) : calculateOptionalGrade(score);
+    }
+
     // 학생, 과목 기준 추가
-    public char AverageGradeBySubject(String studentId,String subjectId, Type type, List<Integer> scoreList) {
-        int avgScore, sum = 0;
-        for (Integer integer : scoreList) {
-            sum += integer;
+    public char averageGradeBySubject() {
+        String studentId =  scanner.nextLine();
+        student = Store.findStudent(studentId);
+        String subjectId = scanner.nextLine();
+        type = SubjectType.getTypeBySubjectId(subjectId);
+        Double avgScore, sum = 0.0;
+        for (Double score : scoreList) {
+            sum += score;
         }
         avgScore = sum / scoreList.size();
         return type.equals(Type.ESSENTIAL_SUBJECT) ? calculateEssentialGrade(avgScore) : calculateOptionalGrade(avgScore);
     }
 
     // 학생, 회차별 평균
-//    public char AverageGradeByTime(String studentId, Times time, Type type, List<Integer> scoreList){
-//        for(int i =0;i<scoreList.size();i++){
-//            if(type.)
-//        }
-//        return ' ';
-//    }
+    public char averageGradeByTimes() {
+        String studentId = scanner.nextLine();
+        student = Store.findStudent(studentId);
+        String subjectId = scanner.nextLine();
+        type = SubjectType.getTypeBySubjectId(subjectId);
+        Double avgScore, sum = 0.0;
+        for (Double score : scoreList) {
+            sum += score;
+        }
+        avgScore = sum / scoreList.size();
+        return type.equals(Type.ESSENTIAL_SUBJECT) ? calculateEssentialGrade(avgScore) : calculateOptionalGrade(avgScore);
+    }
 }
