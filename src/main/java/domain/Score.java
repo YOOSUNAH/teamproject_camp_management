@@ -88,3 +88,5 @@ public class Score {
     }
 
 }
+
+//Score클래스 영효님이 만드신거 잘 됐나 확인 후 삭제 할 주석
