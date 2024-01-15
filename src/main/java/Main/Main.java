@@ -4,6 +4,7 @@ import Service.StudentAppender;
 import Service.ScreenService;
 import Service.StudentDeleter;
 import Service.StudentReader;
+import domain.Score;
 import domain.Student;
 import store.Store;
 
@@ -19,6 +20,7 @@ public class Main {
         StudentAppender studentAppender = new StudentAppender();
         StudentReader studentReader = new StudentReader();
         StudentDeleter studentDeleter = new StudentDeleter();
+        Score setScore =new Score();
 
         //    "1. 수강생 정보 및 과목 입력하기\n" +
         //    "2. 수강생 정보 조회하기\n" +
@@ -31,11 +33,13 @@ public class Main {
             switch (input) {
                 case ("1"):
                     studentAppender.append();
+                    setScore.setInitialScoreData(studentAppender.getIDforscore());
                     break;
                 case ("2"):
                     studentReader.read();
                     break;
                 case ("3"):
+                    setScore.RecordScore();
                     break;
                 case("4"):
                       studentDeleter.delete();
