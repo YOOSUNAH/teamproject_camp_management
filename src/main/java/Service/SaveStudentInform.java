@@ -40,6 +40,10 @@ public class SaveStudentInform {
             subjectE.makeEssentialSubjectList(studentId, subjectName);
 
             List<String> selectedEssentialSubjects = subjectE.getEessentialSubjectList(studentId);
+
+//            if(selectedEssentialSubjects.contains())
+
+
             if (selectedEssentialSubjects.size() >= 3) {
                 screenService.askKeepOrStop();
                 String keepOrStop = sc.nextLine();
