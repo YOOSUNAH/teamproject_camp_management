@@ -24,7 +24,6 @@ public class Score {
 
     }
     // score 추가
-
     public Map<Integer, Integer> essentialTimesScores(Integer times, Integer scores){
         return essentialTimesScores;
     }
