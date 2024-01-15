@@ -63,25 +63,34 @@ public class Score {
             switch (x) {
                 case "Java":
                     Subject = 0;
+                    break;
                 case "OOP":
                     Subject = 1;
+                    break;
                 case "Spring":
                     Subject = 2;
+                    break;
                 case "JPA":
                     Subject = 3;
+                    break;
                 case "MySQL":
                     Subject = 4;
+                    break;
                 case "DesignPattern":
                     Subject = 5;
+                    break;
                 case "SpringSecurity":
                     Subject = 6;
                 case "Redis":
                     Subject = 7;
                 case "MongoDB":
                     Subject = 8;
-
+                default:
+                    if (Subject == -1) {
+                        System.out.println("과목을 다시 입력하세요");
+                    }
+                    break;
             }
-            if(Subject==-1){System.out.println("과목을 다시 입력하세요");}
         }
         return Subject;
 

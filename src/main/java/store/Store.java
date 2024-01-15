@@ -21,5 +21,7 @@ public class Store {
     public static Student deleteStudent(Integer studentId){
         return students.remove(studentId);
     }
-
+    public static boolean returnkey(Integer studentId){
+        return students.containsKey(studentId);
+    }
 }
