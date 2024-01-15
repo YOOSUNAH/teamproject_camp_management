@@ -3,6 +3,7 @@ package domain;
 import common.enumeration.SubjectType;
 
 import java.util.List;
+import java.util.Map;
 
 public class Student {
 
@@ -11,6 +12,7 @@ public class Student {
 
     private List<SubjectType> essentialSubjects;
     private List<SubjectType> optionalSubjects;
+    // score 추가
 
 
     public Student(
@@ -18,11 +20,14 @@ public class Student {
         String studentName,
         List<SubjectType> essentialSubjects,
         List<SubjectType> optionalSubjects
-    ) {
+        ) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.essentialSubjects = essentialSubjects;
         this.optionalSubjects = optionalSubjects;
+    }
+
+    public Student(){
     }
 
     //     Getter
@@ -41,6 +46,7 @@ public class Student {
     public List<SubjectType> optionalSubjects(){
         return optionalSubjects;
     }
+
 }
 
 

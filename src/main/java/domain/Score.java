@@ -1,99 +1,37 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+
 public class Score {
 
+    private  Map<String, Map<Integer, Integer>>  optionalSubjectsScores;
+    private Map<String, Map<Integer, Integer>>  essentialSubjectsScores;
+    private Map<Integer, Integer>essentialTimesScores;
 
-    Map<Integer,ArrayList<ArrayList<String>>> Scores= new HashMap<>();
-
-
-
-    public void RecordScore(){
-        Scanner sc = new Scanner(System.in);
-        System.out.print("학생 고유 번호 입력:");
-        Integer ID = sc.nextInt();
-        System.out.print("과목 입력:");
-        String Subject=sc.next();
-        int Sub = Convert(Subject);
-        System.out.print("회차 입력:");
-        int times = sc.nextInt();
-        System.out.print("점수 입력:");
-        String Score = sc.next();
-
-        ArrayList<ArrayList<String>>temp=Scores.get(ID);
-        ArrayList<String> temp2 = temp.get(Sub);
-        temp2.set(times-1,Score);
-        temp.set(Sub,temp2);
-
-        Scores.put(ID,temp);
-
-
-
+    public Score(
+        // (과목)
+        // score 추가 (과목 , (회차, 점수))
+        Map<String, Map<Integer, Integer>> essentialSubjectsScores,
+        Map<String, Map<Integer, Integer>> optionalSubjectsScores,
+        Map<Integer, Integer>essentialTimesScores
+    ) {
+        // score 추가
+        this.essentialSubjectsScores = essentialSubjectsScores;
+        this.optionalSubjectsScores = optionalSubjectsScores;
     }
 
-    public void setInitialScoreData(Integer ID){
-        ArrayList<ArrayList<String>> ScoreData= new ArrayList<>();
-        ArrayList<String> Java =new ArrayList<>();
-        ArrayList<String> OOP =new ArrayList<>();
-        ArrayList<String> Spring =new ArrayList<>();
-        ArrayList<String> JPA =new ArrayList<>();
-        ArrayList<String> MySQL =new ArrayList<>();
-        ArrayList<String> DesignPattern =new ArrayList<>();
-        ArrayList<String> SpringSecurity =new ArrayList<>();
-        ArrayList<String> Redis =new ArrayList<>();
-        ArrayList<String> MongoDB =new ArrayList<>();
-        for(int i=0;i<10;i++){
-            Java.add(null);OOP.add(null);Spring.add(null);JPA.add(null);MySQL.add(null);
-            DesignPattern.add(null);SpringSecurity.add(null);Redis.add(null);MongoDB.add(null);
-
-
-        }
-        ScoreData.add(Java);ScoreData.add(OOP);ScoreData.add(Spring);ScoreData.add(JPA);ScoreData.add(MySQL);
-        ScoreData.add(DesignPattern);ScoreData.add(SpringSecurity);ScoreData.add(Redis);ScoreData.add(MongoDB);
-
-        Scores.put(ID,ScoreData);
+    public Score(){
 
     }
-    public int Convert(String x){
-        int Subject=-1;
-        while(Subject==-1) {
-            switch (x) {
-                case "Java":
-                    Subject = 0;
-                    break;
-                case "OOP":
-                    Subject = 1;
-                    break;
-                case "Spring":
-                    Subject = 2;
-                    break;
-                case "JPA":
-                    Subject = 3;
-                    break;
-                case "MySQL":
-                    Subject = 4;
-                    break;
-                case "DesignPattern":
-                    Subject = 5;
-                    break;
-                case "SpringSecurity":
-                    Subject = 6;
-                case "Redis":
-                    Subject = 7;
-                case "MongoDB":
-                    Subject = 8;
-                default:
-                    if (Subject == -1) {
-                        System.out.println("과목을 다시 입력하세요");
-                    }
-                    break;
-            }
-        }
-        return Subject;
+    // score 추가
 
+    public Map<Integer, Integer> essentialTimesScores(Integer times, Integer scores){
+        return essentialTimesScores;
     }
-
+    public Map<String, Map<Integer, Integer>>  essentialSubjectsScores(String subjects, Integer times, Integer scores) {
+        return optionalSubjectsScores;
+    }
+    public  Map<String, Map<Integer, Integer>>  optionalSubjectsScores() {
+        return optionalSubjectsScores;
+    }
 }

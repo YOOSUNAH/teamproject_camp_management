@@ -1,5 +1,6 @@
 package store;
 
+import domain.Score;
 import domain.Student;
 
 import java.util.HashMap;
@@ -11,17 +12,27 @@ public class Store {
 
     private static Map<Integer, Student> students = new HashMap<>();
 
-    public static void addStudent(Student student){
+    public static void addStudent(Student student) {
         students.put(student.getStudentId(), student);
     }
-    public static Student findStudent(Integer studentId){
+
+    public static Student findStudent(Integer studentId) {
         return students.get(studentId);
     }
 
-    public static Student deleteStudent(Integer studentId){
+    public static Student deleteStudent(Integer studentId) {
         return students.remove(studentId);
     }
-    public static boolean returnkey(Integer studentId){
+
+    public static boolean returnkey(Integer studentId) {
         return students.containsKey(studentId);
     }
+
+    public static Integer essentialSubjectsScores(Score score, String subjects, Integer times, Integer scores) {
+        return score.essentialSubjectsScores(subjects, times, scores).put(subjects, times);
+    }
+    public Map<Integer, Integer>  essentialTimesScores(Score score, Integer times, Integer scores) {
+    return score.essentialTimesScores(times, scores);
+    }
+
 }
