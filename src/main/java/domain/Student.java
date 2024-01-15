@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Student {
 
-    private String studentId;
+    private Integer studentId;
     private String studentName;
 
     private List<SubjectType> essentialSubjects;
@@ -14,7 +14,7 @@ public class Student {
 
 
     public Student(
-        String studentId,
+        Integer studentId,
         String studentName,
         List<SubjectType> essentialSubjects,
         List<SubjectType> optionalSubjects
@@ -26,7 +26,7 @@ public class Student {
     }
 
     //     Getter
-    public String getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 

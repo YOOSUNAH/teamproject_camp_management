@@ -11,7 +11,7 @@ public class StudentDeleter {
     public void delete() {
         screenService.inputStudentIdNumber();
         String searchStudentId = sc.nextLine();
-        Student student = Store.deleteStudent(searchStudentId);
+        Student student = Store.deleteStudent(Integer.valueOf(searchStudentId));
         System.out.println(student.getStudentName() + " 수강생의 정보가 삭제되었습니다.");
     }
 }

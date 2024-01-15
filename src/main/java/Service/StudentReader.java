@@ -13,11 +13,11 @@ public class StudentReader {
     ScreenService screenService = new ScreenService();
     public void read() {
         screenService.inputStudentIdNumber();
-        String searchStudentId = sc.nextLine();
+        Integer searchStudentId = sc.nextInt();
         Student student = Store.findStudent(searchStudentId);
 
         if(student == null ||  // null을 조심하자
-            student.getStudentId().isEmpty()){
+            student.getStudentId()==0){
             System.out.println("저장된 수강생이 없습니다.");
             return;
         }
