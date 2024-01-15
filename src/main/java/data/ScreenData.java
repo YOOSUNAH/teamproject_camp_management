@@ -9,4 +9,5 @@ public enum ScreenData {
     SelectSubjectE,
     SelectSubjectO,
     AskKeepOrStop;
+    // enum 이다
 }
