@@ -24,13 +24,13 @@ public class ScoreAppender {
         Integer score = sc.nextInt();
 
         Student student = new Student();
-        Score scores = new Score(studentId, subjectType, round, score);
         SubjectType essentialSubject = SubjectType.valueOf(subject);
         SubjectType optionalSubject = SubjectType.valueOf(subject);
 
         if(student.getStudentId().equals(studentId)&& student.getStudentName().equals(studentName))
-        for (SubjectType subjectT: student.essentialSubjects()) {
+        for (SubjectType subjectT : student.getEssentialSubjects()) {
             if(subjectT == essentialSubject || subjectT == optionalSubject){
+                Score scores = new Score(studentId, subjectT, round, score);
                 Store.addScore(scores);
             }
         }

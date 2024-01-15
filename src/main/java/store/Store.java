@@ -29,7 +29,6 @@ public class Store {
     }
 
     public static String addScore(Score score) {
-
         Map<Integer, Integer> studentScoresByRound = new HashMap<>();
         studentScoresByRound.put(score.getRound(), score.getScore());
         return studentScoresByRound.toString();
