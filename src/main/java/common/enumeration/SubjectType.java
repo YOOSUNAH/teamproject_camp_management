@@ -1,5 +1,7 @@
 package common.enumeration;
 
+import java.util.Objects;
+
 public enum SubjectType {
 
     JAVA(Type.ESSENTIAL_SUBJECT),
@@ -18,4 +20,18 @@ public enum SubjectType {
 
         this.type = type;
     }
+    public Type getType() {
+        return type;
+    }
+    public static Type getTypeBySubjectId(Integer subjectId) {
+        for (SubjectType subject : SubjectType.values()) {
+            if(subject.name().equals(subjectId.toString())){
+                return subject.getType();
+            }
+        }
+        return null;
+    }
+
+
+
 }
