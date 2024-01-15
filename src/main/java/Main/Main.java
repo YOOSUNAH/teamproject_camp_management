@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         ScreenService screenService = new ScreenService();
         StudentAppender studentAppender = new StudentAppender();
@@ -21,7 +22,7 @@ public class Main {
                 switch (input) {
                     case "1" -> {
                         studentAppender.append();
-                        putScore.setInitialScoreData(String.valueOf(studentAppender.getIDforscore()));
+                        putScore.setInitialScoreData(studentAppender.getIDforscore());
                     }
                     case "2" -> {
                         studentReader.read();
