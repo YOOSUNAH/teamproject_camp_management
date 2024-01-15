@@ -24,10 +24,10 @@ public class StudentAppender {
         List<SubjectType> essentialSubjects = addEssentialSubjects();
         List<SubjectType> optionalSubjects = addOptionalSubjects();
         Student student = new Student(
-            studentId,
-            studentName,
-            essentialSubjects,
-            optionalSubjects
+                studentId,
+                studentName,
+                essentialSubjects,
+                optionalSubjects
         );
         Store.addStudent(student);
     }
@@ -76,6 +76,8 @@ public class StudentAppender {
                 }
                 essentialSubjects.add(subjectType);
             }
+
+
             if (essentialSubjects.size() >= 3) {
                 screenService.askKeepOrStop();
                 String keepOrStop1 = sc.nextLine();
