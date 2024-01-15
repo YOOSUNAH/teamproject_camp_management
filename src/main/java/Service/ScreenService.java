@@ -26,13 +26,6 @@ public class ScreenService {
     public void inputStudentName(){
         print(screenStage.getScreenStage(ScreenData.Input_Student_Name));
     }
-
-    public void findStudentIdNumber(){
-        print(screenStage.getScreenStage(ScreenData.Find_Student_IdNumber));
-    }
-    public void findStudentName(){
-        print(screenStage.getScreenStage(ScreenData.Find_Student_Name));
-    }
     public void askKeepOrStop(){
         print(screenStage.getScreenStage(ScreenData.AskKeepOrStop));
     }

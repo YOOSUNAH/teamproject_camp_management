@@ -18,5 +18,8 @@ public class Store {
         return students.get(studentId);
     }
 
+    public static Student deleteStudent(String studentId){
+        return students.remove(studentId);
+    }
 
 }
