@@ -1,9 +1,8 @@
 package Main;
 
-import Service.SaveStudentInform;
+import Service.StudentAppender;
 import Service.ScreenService;
-import Service.SearchStudentInform;
-import domain.Student;
+import Service.StudentReader;
 
 
 import java.util.Scanner;
@@ -14,19 +13,18 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         ScreenService screenService = new ScreenService();
-        Student student = new Student("", "");
-        SaveStudentInform saveStudentInform = new SaveStudentInform();
-        SearchStudentInform searchStudentInform = new SearchStudentInform();
+        StudentAppender studentAppender = new StudentAppender();
+        StudentReader studentReader = new StudentReader();
 
         while (true) {
             screenService.mainPage();
             String input = sc.nextLine();
             switch (input) {
                 case ("1"):   // 1. 수강생 정보 및 과목 입력하기
-                    saveStudentInform.saveStudentInform();
+                    studentAppender.append();
                     break;
                 case ("2"):   // 2. 수강생 정보 조회하기
-                    searchStudentInform.searchStudentInform(student.getStudentId(), student.getStudentName());
+                    studentReader.read();
                     break;
                 case ("3"):  // 3. 수강생의 과목별 시험 회차 및 점수를 등록하기
                     break;
