@@ -32,4 +32,3 @@ public class ScreenService {
         print(screenStage.getScreenStage(ScreenData.AskKeepOrStop));
     }
 }
-    //public void donotduplication() {print(screenStage.getScreenStage(ScreenData.AskKeepOrStop));}
