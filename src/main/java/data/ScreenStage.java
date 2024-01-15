@@ -28,7 +28,6 @@ public class ScreenStage {
         screenStageMap.put(ScreenData.Input_Student_Name, "수강생 이름을 입력해주세요");
         screenStageMap.put(ScreenData.SelectSubjectE, "필수 과목을 3개 이상 선택헤주세요. (과목명만 입력해 주세요.)");
         screenStageMap.put(ScreenData.SelectSubjectO, "선택 과목을 2개 이상 선택헤주세요.  (과목명만 입력해 주세요.)");
-
         screenStageMap.put(ScreenData.AskKeepOrStop, "1. 계속 선택 하기   2. 그만 선택 하기  (번호만 입력해 주세요)");
     }
 }

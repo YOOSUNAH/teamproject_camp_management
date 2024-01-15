@@ -13,8 +13,6 @@ public class StudentDeleter {
         String searchStudentId = sc.nextLine();
         Student student = Store.deleteStudent(searchStudentId);
         System.out.println(student.getStudentName() + " 수강생의 정보가 삭제되었습니다.");
-
-
     }
 }
 
