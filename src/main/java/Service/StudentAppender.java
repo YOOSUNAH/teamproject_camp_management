@@ -12,13 +12,13 @@ public class StudentAppender {
     Scanner sc = new Scanner(System.in);
     ScreenService screenService = new ScreenService();
 
-    String ID = "";
+    Integer ID = 0;
 
     public void append() {
         // 1.수강생 정보 입력하기
         screenService.inputStudentIdNumber();
-        String studentId = sc.nextLine();
-        String ID = studentId;
+        Integer studentId = Integer.parseInt(sc.nextLine());
+        Integer ID = studentId;
         screenService.inputStudentName();
         String studentName = sc.nextLine();
         // 2.수강생 과목 입력하기
@@ -27,10 +27,10 @@ public class StudentAppender {
         List<SubjectType> essentialSubjects = addEssentialSubjects();
         List<SubjectType> optionalSubjects = addOptionalSubjects();
         Student student = new Student(
-            studentId,
-            studentName,
-            essentialSubjects,
-            optionalSubjects
+                studentId,
+                studentName,
+                essentialSubjects,
+                optionalSubjects
         );
         Store.addStudent(student);
     }
@@ -83,6 +83,8 @@ public class StudentAppender {
                     System.out.println("이미 선택된 과목입니다. 다른 과목을 선택해주세요.");
                 } else essentialSubjects.add(subjectType);
             }
+
+
             if (essentialSubjects.size() >= 3) {
                 screenService.askKeepOrStop();
                 String keepOrStop1 = sc.nextLine();
@@ -94,7 +96,7 @@ public class StudentAppender {
         return essentialSubjects;
     }
 
-    public String getIDforscore() {
+    public Integer getIDforscore() {
 
         return ID;
     }
