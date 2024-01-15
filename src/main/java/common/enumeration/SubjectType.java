@@ -32,6 +32,4 @@ public enum SubjectType {
         return null;
     }
 
-
-
 }
