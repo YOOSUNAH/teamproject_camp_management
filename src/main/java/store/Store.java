@@ -22,4 +22,9 @@ public class Store {
         return students.remove(studentId);
     }
 
+    public static boolean returnkey(Integer studentId){
+        return students.containsKey(studentId);
+    }
+
+
 }
