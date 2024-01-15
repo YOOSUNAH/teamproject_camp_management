@@ -17,11 +17,12 @@ public class ScreenStage {
 
     private void screenInitializationStage() {
         screenStageMap.put(ScreenData.MainPage,
-            "=======내배캠 관리에 오신것을 환영합니다.==========\n" +
+            "\n" +
+                "=======내배캠 관리에 오신것을 환영합니다.==========\n" +
                 "1. 수강생 정보 및 과목 입력하기\n" +
                 "2. 수강생 정보 조회하기\n" +
-                "3. 수강생 정보 삭제하기\n" +
-                "4. 수강생의 과목별 시험 회차 및 점수를 등록하기\n" +
+                "3. 수강생의 과목별 시험 회차 및 점수를 등록하기\n" +
+                "4. 수강생 정보 삭제하기\n" +
                 "5. 수강생의 특정 과목 회차별 등급을 조회\n");
 
         screenStageMap.put(ScreenData.Input_Student_IdNumber, "수강생 고유번호를 입력해주세요");

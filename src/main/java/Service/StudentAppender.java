@@ -12,10 +12,13 @@ public class StudentAppender {
     Scanner sc = new Scanner(System.in);
     ScreenService screenService = new ScreenService();
 
+    String ID = "";
+
     public void append() {
         // 1.수강생 정보 입력하기
         screenService.inputStudentIdNumber();
         String studentId = sc.nextLine();
+        String ID = studentId;
         screenService.inputStudentName();
         String studentName = sc.nextLine();
         // 2.수강생 과목 입력하기
@@ -34,7 +37,7 @@ public class StudentAppender {
 
     private List<SubjectType> addOptionalSubjects() {
         List<SubjectType> optionalSubjects = new ArrayList<>();
-        // 과목 선택
+        // 선택과목 선택
         while (true) {
             screenService.selectSubjectO();
             System.out.println("1." + SubjectType.DESIGNPATTERN);
@@ -46,7 +49,9 @@ public class StudentAppender {
                 if (!subjectType.name().equalsIgnoreCase(subjectName)) {
                     continue;
                 }
-                optionalSubjects.add(subjectType);
+                if (optionalSubjects.contains(subjectType)) {
+                    System.out.println("이미 선택된 과목입니다. 다른 과목을 선택해주세요.");
+                } else optionalSubjects.add(subjectType);
             }
             if (optionalSubjects.size() >= 2) {
                 screenService.askKeepOrStop();
@@ -74,7 +79,9 @@ public class StudentAppender {
                 if (!subjectType.name().equalsIgnoreCase(subjectName)) {
                     continue;
                 }
-                essentialSubjects.add(subjectType);
+                if (essentialSubjects.contains(subjectType)) {
+                    System.out.println("이미 선택된 과목입니다. 다른 과목을 선택해주세요.");
+                } else essentialSubjects.add(subjectType);
             }
             if (essentialSubjects.size() >= 3) {
                 screenService.askKeepOrStop();
@@ -86,5 +93,9 @@ public class StudentAppender {
         }
         return essentialSubjects;
     }
-}
 
+    public String getIDforscore() {
+
+        return ID;
+    }
+}

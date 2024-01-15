@@ -15,8 +15,11 @@ public class StudentReader {
         screenService.inputStudentIdNumber();
         String searchStudentId = sc.nextLine();
         Student student = Store.findStudent(searchStudentId);
-        if(student.getStudentId().isEmpty()  || student.getStudentName().isEmpty()){
+
+        if(student == null ||  // null을 조심하자
+            student.getStudentId().isEmpty()){
             System.out.println("저장된 수강생이 없습니다.");
+            return;
         }
         System.out.println(student.getStudentName() + "이 수강한 과목");
         System.out.println("필수 과목 : " + student.essentialSubjects() +"\n선택 과목 : "+ student.optionalSubjects());

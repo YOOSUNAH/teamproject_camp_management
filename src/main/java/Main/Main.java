@@ -21,8 +21,8 @@ public class Main {
 
         //    "1. 수강생 정보 및 과목 입력하기\n" +
         //    "2. 수강생 정보 조회하기\n" +
-        //    "3. 수강생 정보 삭제하기" +
-        //    "4. 수강생의 과목별 시험 회차 및 점수를 등록하기\n" +
+        //    "3. 수강생의 과목별 시험 회차 및 점수를 등록하기\n" +
+        //    "4. 수강생 정보 삭제하기" +
         //    "5. 수강생의 특정 과목 회차별 등급을 조회\n");
         while (true) {
             screenService.mainPage();
@@ -35,12 +35,10 @@ public class Main {
                     studentReader.read();
                     break;
                 case ("3"):
-                    studentDeleter.delete();
                     break;
                 case("4"):
-                    break;
-                case("5"):
-                    break;
+                      studentDeleter.delete();
+                      break;
                 default: screenService.mainPage();
                     input = sc.nextLine();
                     break;
