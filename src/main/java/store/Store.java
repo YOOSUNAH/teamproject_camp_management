@@ -27,16 +27,13 @@ public class Store {
     public static boolean returnkey(Integer studentId) {
         return students.containsKey(studentId);
     }
+    private static Map<Integer, Score> scores = new HashMap<>();
 
-    public static String addScore(Score score) {
-        Map<Integer, Integer> studentScoresByRound = new HashMap<>();
-        studentScoresByRound.put(score.getRound(), score.getScore());
-        return studentScoresByRound.toString();
+    public static void addScore(Student student, Score score) {
+        scores.put(student.getStudentId(), score);
     }
-    public static String readScore(Score score) {
-        Map<Integer, Integer> studentScoresByRound = new HashMap<>();
-        studentScoresByRound.put(score.getRound(), score.getScore());
-        return studentScoresByRound.toString();
+    public static Score readScore(Integer studentId) {
+        return scores.get(studentId);
     }
 
 }
