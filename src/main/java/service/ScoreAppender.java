@@ -32,28 +32,23 @@ public class ScoreAppender {
         Integer subjectID = 0;
 
         for (SubjectType subjectIDFromSubjectType : SubjectType.values()) {
-             subjectID = subjectIDFromSubjectType.getId();
-            }
-
+            subjectID = subjectIDFromSubjectType.getId();
+        }
 
         // store에서 가져오기
         // null pointexception 나지 않게
-
-//        System.out.println("학생이 있는지 확인하기 :" + student.getStudentName());
-//        if (student.getStudentId().equals(studentId)) { // null
-//            for (SubjectType subjectT : student.getEssentialSubjects()) {
-//                Score score = new Score(
-//                    studentId,
-//                    SubjectType.valueOf(String.valueOf(subjectID)),
-//                    round,
-//                    inputScore
-//                );
-//                Store.addScore(score);
-//            }
-//        }
-
-
+        if (Store.findStudent(studentId).equals(studentId)) { // null
+            if ((Store.findStudent(studentId).getEssentialSubjects().contains(subject))
+                || (Store.findStudent(studentId).getOptionalSubjects().contains(subject))) {
+                Score score = new Score(
+                    studentId,
+                    SubjectType.valueOf(String.valueOf(subjectID)),
+                    round,
+                    inputScore
+                );
+                Store.addScore(score);
+            }
+        }
     }
-
-
 }
+

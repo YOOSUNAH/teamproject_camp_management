@@ -15,6 +15,7 @@ public class Main {
         StudentDeleter studentDeleter = new StudentDeleter();
         CalculateService calculateService = new CalculateService();
         ScoreAppender ScoreAppender = new ScoreAppender();
+        ScoreReader scoreReader = new ScoreReader();
 
             while (true) {
                 screenService.mainPage();
@@ -30,9 +31,12 @@ public class Main {
                         ScoreAppender.scoreAppend();
                     }
                     case "4" -> {
-                        studentDeleter.delete();
+                        scoreReader.scoreRead();
                     }
                     case "5" -> {
+                        studentDeleter.delete();
+                    }
+                    case "6" -> {
                         calculateService.getGradeBySubjectAndTimes();
                     }
                 }

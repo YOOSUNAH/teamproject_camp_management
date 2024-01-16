@@ -42,5 +42,8 @@ public class Store {
         scores.put(score.getStudentId(), score);
     }
 
+    public static Score readScore(Integer studentId) {
+       return scores.get(studentId);
+    }
 
 }
