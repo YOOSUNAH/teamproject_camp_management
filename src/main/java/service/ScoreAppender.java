@@ -3,6 +3,7 @@ package service;
 import common.enumeration.SubjectType;
 import domain.Score;
 import domain.Student;
+import domain.Subject;
 import store.Store;
 
 import java.util.Scanner;
@@ -27,26 +28,19 @@ public class ScoreAppender {
         System.out.print("점수 입력:");
         Integer inputScore = sc.nextInt();
 
-        SubjectType essentialSubject = SubjectType.valueOf(subject);
-        SubjectType optionalSubject = SubjectType.valueOf(subject);
-        Integer subjectID = 0;
-
-        for (SubjectType subjectIDFromSubjectType : SubjectType.values()) {
-            subjectID = subjectIDFromSubjectType.getId();
-        }
-
         // store에서 가져오기
         // null pointexception 나지 않게
-        if (Store.findStudent(studentId).equals(studentId)) { // null
-            if ((Store.findStudent(studentId).getEssentialSubjects().contains(subject))
+        if (studentId.equals(Store.findStudent(studentId).getStudentId())){ // Id 일치 하는지 확인
+            if ((Store.findStudent(studentId).getEssentialSubjects().contains(subject))  // 과목 일치하는지 확인
                 || (Store.findStudent(studentId).getOptionalSubjects().contains(subject))) {
                 Score score = new Score(
                     studentId,
-                    SubjectType.valueOf(String.valueOf(subjectID)),
+                    SubjectType.valueOf(String.valueOf(subject)),
                     round,
                     inputScore
                 );
-                Store.addScore(score);
+                Store.addScore(studentId, score);
+                Store.showAllStudent();
             }
         }
     }
