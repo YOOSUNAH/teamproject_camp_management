@@ -1,19 +1,5 @@
 출력문 예시
 
-
-
-5:52:02 PM: Executing ':Main.main()'...
-
-
-> Task :compileJava
-
-> Task :processResources NO-SOURCE
-> Task :classes
-Note: /Users/yuseon-a/Desktop/개발/스파르타내일배움캠프/team-project/8조_캠프관리프로그램/8팀과제/src/main/java/store/Store.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-
-> Task :Main.main()
-
 =======내배캠 관리에 오신것을 환영합니다.==========
 1. 수강생 정보 및 과목 입력하기
 2. 수강생 정보 조회하기
