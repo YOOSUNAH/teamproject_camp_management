@@ -26,8 +26,9 @@ public class Store {
     public static void showAllStudent() {
         for (Entry<Integer, Student> entrySet : students.entrySet()) {
             System.out.println("[수강생 고유번호] : " + entrySet.getKey().toString() + " [수강생 이름] : " + entrySet.getValue().getStudentName());
-            System.out.println("[수강한 필수 과목] : " + entrySet.getValue().getOptionalSubjects());
-            System.out.println("[수강한 선택 과목] : " + entrySet.getValue().getEssentialSubjects());
+            System.out.println("[수강한 필수 과목] : " + entrySet.getValue().getEssentialSubjects());
+            System.out.println("[수강한 선택 과목] : " + entrySet.getValue().getOptionalSubjects());
+            
         }
     }
 
