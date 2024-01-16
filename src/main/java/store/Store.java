@@ -24,9 +24,12 @@ public class Store {
     }
 
     public static void showAllStudent() {
-            for (Entry<Integer, Student> entrySet : students.entrySet()) {
-                System.out.println("[수강생 고유번호] : " + entrySet.getKey().toString() + " [수강생 이름] : " + entrySet.getValue().getStudentName()); }
+        for (Entry<Integer, Student> entrySet : students.entrySet()) {
+            System.out.println("[수강생 고유번호] : " + entrySet.getKey().toString() + " [수강생 이름] : " + entrySet.getValue().getStudentName());
+            System.out.println("[수강한 필수 과목] : " + entrySet.getValue().getOptionalSubjects());
+            System.out.println("[수강한 선택 과목] : " + entrySet.getValue().getEssentialSubjects());
         }
+    }
 
     public static Student deleteStudent(Integer studentId) {
         return students.remove(studentId);
@@ -40,19 +43,31 @@ public class Store {
     // 학생 Id,  Score( 과목Id, 회차, 점수)
     private static Map<Integer, Score> scores = new HashMap<>();
 
-
-    // 회차 - 점수
-    private static Map<Integer, Integer> scoresByRound = new HashMap<>();
-    public static void addScoresByRound(Score score, Integer round){
-    }
-
-
     public static void addScore(Integer studentId, Score score) {
         scores.put(studentId, score);
     }
 
     public static Score readScore(Integer studentId) {
-       return scores.get(studentId);
+        return scores.get(studentId);
     }
 
+
+    private static Map<Integer, Map<Integer, Map<Integer, Integer>>> studentandSubjectAndRoundAndScore = new HashMap<>(); // 학생 < 과목, <회차, 점수> >
+
+    private static Map<Integer, Map<Integer, Integer>> subjectAndRoundAndScore = new HashMap<>(); // 과목, <회차, 점수>
+    // 회차 - 점수
+    private static Map<Integer, Integer> scoresByRound = new HashMap<>(); // 회차 - 점수
+
+    public static void addScoreByRound(Score score) {   // 회차 - 점수
+        scoresByRound.put(score.getRound(), score.getScore());
+    }
+
+    public static void addSubjectAndRoundAndScore(Integer studentId, Map scoresByRound) {  // 과목, < 회차, 점수>
+        Integer subjectId = Integer.parseInt(String.valueOf(scores.get(studentId).getSubjectID()));
+        scoresByRound.put(subjectId, scoresByRound);
+    }
+
+    public static void addStudentandSubjectAndRoundAndScore(Integer studentId, Map subjectAndRoundAndScore) {
+        studentandSubjectAndRoundAndScore.put(studentId, subjectAndRoundAndScore);
+    }
 }

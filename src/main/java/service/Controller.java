@@ -37,7 +37,7 @@ public class Controller {
     StudentAppender studentAppender = new StudentAppender();
     StudentReader studentReader = new StudentReader();
     StudentDeleter studentDeleter = new StudentDeleter();
-    CalculateService calculateService = new CalculateService();
+//    CalculateService calculateService = new CalculateService();
     ScoreAppender ScoreAppender = new ScoreAppender();
     ScoreReader scoreReader = new ScoreReader();
 
@@ -65,7 +65,7 @@ public class Controller {
 
 
     public void getGradeBySubjectAndTimes() {
-        calculateService.getGradeBySubjectAndTimes();
+//        calculateService.getGradeBySubjectAndTimes();
 
     }
 

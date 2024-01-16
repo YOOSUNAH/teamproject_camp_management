@@ -29,7 +29,7 @@ public class ScoreReader {
         }
 
         Store.readScore(studentId).getSubjectID();
-        System.out.println();
+        System.out.println("과목 : " + Store.readScore(studentId).getSubjectID());
         System.out.println(Store.readScore(studentId).getRound() + "차 점수 : " + Store.readScore(studentId).getScore() + "점");
     }
 }

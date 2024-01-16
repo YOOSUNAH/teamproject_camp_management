@@ -2,8 +2,6 @@ package service;
 
 import common.enumeration.SubjectType;
 import domain.Score;
-import domain.Student;
-import domain.Subject;
 import store.Store;
 
 import java.util.List;
@@ -35,18 +33,9 @@ public class ScoreAppender {
         List<SubjectType> checkOptionalSubjects = Store.findStudent(studentId).getOptionalSubjects();
         String checkSubject = "";
 
-   //     for (SubjectType subjectType :   ) {
-     //       subjectID
- //       }
-        // subject
-//        subjectID를 가지고 와야한다
-
-
-
         if (studentId.equals(checkStudentId)) { // Id 일치 하는지 확인
             for (int i = 0; i < checkEssentialSubjects.size(); i++) {
                 checkSubject = String.valueOf(checkEssentialSubjects.get(i));
-                System.out.println(checkSubject);
                 if (checkSubject.equals(subject)) {
                     Score score = new Score(
                         studentId,
@@ -58,6 +47,21 @@ public class ScoreAppender {
                     return;
                 }
                 return;
+            }
+            for (int j = 0; j < checkOptionalSubjects.size(); j++) {
+                checkSubject = String.valueOf(checkOptionalSubjects.get(j));
+                if (checkSubject.equals(subject)) {
+                    Score score = new Score(
+                        studentId,
+                        SubjectType.valueOf(checkSubject),
+                        round,
+                        inputScore
+                    );
+                    Store.addScore(studentId, score);
+                    return;
+                }
+                return;
+
             }
         }
     }
