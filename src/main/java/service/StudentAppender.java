@@ -25,7 +25,7 @@ public class StudentAppender {
         while (idcheck) {
             screenService.inputStudentIdNumber();
             studentId = Integer.parseInt(sc.nextLine());
-            if (Store.returnkey(studentId)) {
+            if (Store.returnKey(studentId)) {
                 System.out.println("ID값이 중복되었습니다. 화면에 나온 올바른 고유번호를 입력해주세요."); //경고문구 출력
             } else {
                 idcheck = false;

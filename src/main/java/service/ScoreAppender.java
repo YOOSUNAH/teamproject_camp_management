@@ -6,6 +6,7 @@ import domain.Student;
 import domain.Subject;
 import store.Store;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ScoreAppender {
@@ -14,13 +15,12 @@ public class ScoreAppender {
 
     public void scoreAppend() {
         // 모든 student Id, 이름 출력해서 고르게 하기
+        System.out.println("[저장되어 있는 수강생]");
         Store.showAllStudent();
 
         Scanner sc = new Scanner(System.in);
         screenService.inputStudentIdNumber();
         Integer studentId = Integer.parseInt(sc.nextLine());
-        screenService.inputStudentName();
-        String studentName = sc.nextLine();
         System.out.print("과목 입력:");
         String subject = sc.nextLine();
         System.out.print("회차 입력:");
@@ -30,17 +30,26 @@ public class ScoreAppender {
 
         // store에서 가져오기
         // null pointexception 나지 않게
-        if (studentId.equals(Store.findStudent(studentId).getStudentId())){ // Id 일치 하는지 확인
-            if ((Store.findStudent(studentId).getEssentialSubjects().contains(subject))  // 과목 일치하는지 확인
-                || (Store.findStudent(studentId).getOptionalSubjects().contains(subject))) {
-                Score score = new Score(
-                    studentId,
-                    SubjectType.valueOf(String.valueOf(subject)),
-                    round,
-                    inputScore
-                );
-                Store.addScore(studentId, score);
-                Store.showAllStudent();
+        Integer checkStudentId = Store.findStudent(studentId).getStudentId();
+        List<SubjectType> checkEssentialSubjects = Store.findStudent(studentId).getEssentialSubjects();
+        List<SubjectType> checkOptionalSubjects = Store.findStudent(studentId).getOptionalSubjects();
+        String checkSubject = "";
+
+        if (studentId.equals(checkStudentId)) { // Id 일치 하는지 확인
+            for (int i = 0; i < checkEssentialSubjects.size(); i++) {
+                checkSubject = String.valueOf(checkEssentialSubjects.get(i));
+                System.out.println(checkSubject);
+                if (checkSubject.equals(subject)) {
+                    Score score = new Score(
+                        studentId,
+                        SubjectType.valueOf(checkSubject),
+                        round,
+                        inputScore
+                    );
+                    Store.addScore(studentId, score);
+                    return;
+                }
+                return;
             }
         }
     }

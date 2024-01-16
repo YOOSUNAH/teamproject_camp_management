@@ -25,14 +25,14 @@ public class Store {
 
     public static void showAllStudent() {
             for (Entry<Integer, Student> entrySet : students.entrySet()) {
-                System.out.println(entrySet.getKey().toString() + " : " + entrySet.getValue().getStudentName()); }
+                System.out.println("[수강생 고유번호] : " + entrySet.getKey().toString() + " [수강생 이름] : " + entrySet.getValue().getStudentName()); }
         }
 
     public static Student deleteStudent(Integer studentId) {
         return students.remove(studentId);
     }
 
-    public static boolean returnkey(Integer studentId) {
+    public static boolean returnKey(Integer studentId) {
         return students.containsKey(studentId);
     }
 
