@@ -37,7 +37,7 @@ public class ScoreAppender {
 
         // store에서 가져오기
         // null pointexception 나지 않게
-        if (Store.findStudent(studentId).equals(studentId)) { // null
+        if (Store.findStudent(studentId).equals(studentId)) {
             if ((Store.findStudent(studentId).getEssentialSubjects().contains(subject))
                 || (Store.findStudent(studentId).getOptionalSubjects().contains(subject))) {
                 Score score = new Score(
@@ -46,7 +46,7 @@ public class ScoreAppender {
                     round,
                     inputScore
                 );
-                Store.addScore(score);
+                Store.addScore(studentId, score);
             }
         }
     }

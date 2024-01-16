@@ -38,8 +38,8 @@ public class Store {
     // 학생 Id,  Score( 과목Id, 회차, 점수)
     private static Map<Integer, Score> scores = new HashMap<>();
 
-    public static void addScore(Score score) {
-        scores.put(score.getStudentId(), score);
+    public static void addScore(Integer studentId, Score score) {
+        scores.put(studentId, score);
     }
 
     public static Score readScore(Integer studentId) {
