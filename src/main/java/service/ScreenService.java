@@ -7,8 +7,7 @@ public class ScreenService {
 
     private final ScreenStage screenStage = new ScreenStage();
 
-    public ScreenService(){
-    }
+    public ScreenService(){}
 
     public void print(String screenStage){
         System.out.println(screenStage);

@@ -25,8 +25,16 @@ public class ScoreAppender {
         String subject = sc.nextLine();
         System.out.print("회차 입력:");
         Integer round = sc.nextInt();
-        System.out.print("점수 입력:");
-        Integer inputScore = sc.nextInt();
+        Integer inputScore;
+            do{
+                System.out.print("점수 입력 : ");
+                inputScore = sc.nextInt();
+
+                if(inputScore < 0 || inputScore > 100){
+                    System.out.println("점수는 0~100까지 입력가능합니다.");
+                }
+            }while(inputScore < 0 || inputScore > 100);
+
 
         // store에서 가져오기
         // null pointexception 나지 않게
@@ -38,7 +46,6 @@ public class ScoreAppender {
         if (studentId.equals(checkStudentId)) { // Id 일치 하는지 확인
             for (int i = 0; i < checkEssentialSubjects.size(); i++) {
                 checkSubject = String.valueOf(checkEssentialSubjects.get(i));
-                System.out.println(checkSubject);
                 if (checkSubject.equals(subject)) {
                     Score score = new Score(
                         studentId,
@@ -50,6 +57,22 @@ public class ScoreAppender {
                     return;
                 }
                 return;
+            }
+
+            for (int j = 0; j < checkOptionalSubjects.size(); j++) {
+                checkSubject = String.valueOf(checkOptionalSubjects.get(j));
+                if (checkSubject.equals(subject)) {
+                    Score score = new Score(
+                            studentId,
+                            SubjectType.valueOf(checkSubject),
+                            round,
+                            inputScore
+                    );
+                    Store.addScore(studentId, score);
+                    return;
+                }
+                return;
+
             }
         }
     }
