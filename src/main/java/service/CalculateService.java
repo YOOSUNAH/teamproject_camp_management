@@ -1,4 +1,4 @@
-package Service;
+package service;
 
 import common.enumeration.SubjectType;
 import common.enumeration.Type;

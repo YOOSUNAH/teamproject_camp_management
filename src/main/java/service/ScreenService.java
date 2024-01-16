@@ -1,9 +1,7 @@
-package Service;
+package service;
 
 import data.ScreenData;
 import data.ScreenStage;
-
-import java.security.PublicKey;
 
 public class ScreenService {
 
