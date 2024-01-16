@@ -12,6 +12,9 @@ public class ScoreAppender {
     ScreenService screenService = new ScreenService();
 
     public void scoreAppend() {
+        // 모든 student Id, 이름 출력해서 고르게 하기
+        Store.showAllStudent();
+
         Scanner sc = new Scanner(System.in);
         screenService.inputStudentIdNumber();
         Integer studentId = Integer.parseInt(sc.nextLine());
@@ -24,7 +27,6 @@ public class ScoreAppender {
         System.out.print("점수 입력:");
         Integer inputScore = sc.nextInt();
 
-        Student student = new Student();
         SubjectType essentialSubject = SubjectType.valueOf(subject);
         SubjectType optionalSubject = SubjectType.valueOf(subject);
         Integer subjectID = 0;
@@ -33,24 +35,24 @@ public class ScoreAppender {
              subjectID = subjectIDFromSubjectType.getId();
             }
 
-        if (student.getStudentId().equals(studentId)
-            && student.getStudentName().equals(studentName)) {
-            for (SubjectType subjectT : student.getEssentialSubjects()) {
+
+        // store에서 가져오기
+        // null pointexception 나지 않게
+
+//        System.out.println("학생이 있는지 확인하기 :" + student.getStudentName());
+//        if (student.getStudentId().equals(studentId)) { // null
+//            for (SubjectType subjectT : student.getEssentialSubjects()) {
+//                Score score = new Score(
+//                    studentId,
+//                    SubjectType.valueOf(String.valueOf(subjectID)),
+//                    round,
+//                    inputScore
+//                );
+//                Store.addScore(score);
+//            }
+//        }
 
 
-
-
-                Score score = new Score(
-                    studentId,
-                    SubjectType.valueOf(String.valueOf(subjectID)),
-                    round,
-                    inputScore
-                );
-                Store.addScore(score);
-            }
-        }
-
-        System.out.println("잘 저장되었어요");
     }
 
 

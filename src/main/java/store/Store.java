@@ -4,7 +4,7 @@ import domain.Score;
 import domain.Student;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map.Entry;
 import java.util.Map;
 
 public class Store {
@@ -20,6 +20,11 @@ public class Store {
     public static Student findStudent(Integer studentId) {
         return students.get(studentId);
     }
+
+    public static void showAllStudent() {
+            for (Entry<Integer, Student> entrySet : students.entrySet()) {
+                System.out.println(entrySet.getKey().toString() + " : " + entrySet.getValue().getStudentName()); }
+        }
 
     public static Student deleteStudent(Integer studentId) {
         return students.remove(studentId);
