@@ -22,9 +22,10 @@ public class Store {
     }
 
     public static void showAllStudent() {
-            for (Entry<Integer, Student> entrySet : students.entrySet()) {
-                System.out.println(entrySet.getKey().toString() + " : " + entrySet.getValue().getStudentName()); }
+        for (Entry<Integer, Student> entrySet : students.entrySet()) {
+            System.out.println(entrySet.getKey().toString() + " : " + entrySet.getValue().getStudentName());
         }
+    }
 
     public static Student deleteStudent(Integer studentId) {
         return students.remove(studentId);
@@ -43,7 +44,7 @@ public class Store {
     }
 
     public static Score readScore(Integer studentId) {
-       return scores.get(studentId);
+        return scores.get(studentId);
     }
 
 }

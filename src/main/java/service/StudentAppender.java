@@ -4,12 +4,14 @@ import common.enumeration.SubjectType;
 import domain.Student;
 import store.Store;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentAppender {
     Scanner sc = new Scanner(System.in);
+
     ScreenService screenService = new ScreenService();
 
     Integer ID = 0;
