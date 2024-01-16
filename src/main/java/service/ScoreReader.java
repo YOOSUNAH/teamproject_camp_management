@@ -27,6 +27,9 @@ public class ScoreReader {
             System.out.println("저장된 점수가 없습니다.");
             return;
         }
+
+        Store.readScore(studentId).getSubjectID();
+        System.out.println();
         System.out.println(Store.readScore(studentId).getRound() + "차 점수 : " + Store.readScore(studentId).getScore() + "점");
     }
 }

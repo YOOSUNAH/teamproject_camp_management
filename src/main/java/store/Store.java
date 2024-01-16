@@ -43,10 +43,9 @@ public class Store {
 
     // 회차 - 점수
     private static Map<Integer, Integer> scoresByRound = new HashMap<>();
-//    public static void addScoresByRound(Score score, Integer round){
-//        scoresByRound.put(score.getRound().get(round),score.getScore().get(round));
-//    }
-    //
+    public static void addScoresByRound(Score score, Integer round){
+    }
+
 
     public static void addScore(Integer studentId, Score score) {
         scores.put(studentId, score);

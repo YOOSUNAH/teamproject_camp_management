@@ -35,6 +35,14 @@ public class ScoreAppender {
         List<SubjectType> checkOptionalSubjects = Store.findStudent(studentId).getOptionalSubjects();
         String checkSubject = "";
 
+   //     for (SubjectType subjectType :   ) {
+     //       subjectID
+ //       }
+        // subject
+//        subjectID를 가지고 와야한다
+
+
+
         if (studentId.equals(checkStudentId)) { // Id 일치 하는지 확인
             for (int i = 0; i < checkEssentialSubjects.size(); i++) {
                 checkSubject = String.valueOf(checkEssentialSubjects.get(i));
@@ -54,4 +62,5 @@ public class ScoreAppender {
         }
     }
 }
+
 

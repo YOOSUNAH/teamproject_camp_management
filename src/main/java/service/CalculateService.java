@@ -2,6 +2,7 @@ package service;
 
 import common.enumeration.SubjectType;
 import common.enumeration.Type;
+import store.Store;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +11,17 @@ import java.util.Scanner;
 
 public class CalculateService {
     private Type type;
-    //    Student student = new Student();
     List<Double> scoreList = new ArrayList<>();
     Double score = 0.0;
     Scanner scanner = new Scanner(System.in);
-    public char calculateEssentialGrade(Double essentialScore) {
+
+    public char calculateEssentialGrade() {
+        System.out.println("확인하고 싶은 학생의 공유번호를 입력해주세요");
+        Integer studentId = Integer.parseInt(scanner.nextLine());
+        String subject = String.valueOf(Store.readScore(studentId).getSubjectID());
+        //  subject -> subjectTypoe에서 -> subjectID 찾아오기 -> subject 알아내기
+        Double essentialScore = Double.valueOf(Store.readScore(studentId).getScore());
+
         char grade = ' ';
         if (essentialScore >= 95 && essentialScore <= 100)
             grade = 'A';
@@ -31,7 +38,10 @@ public class CalculateService {
         return grade;
     }
 
-    public char calculateOptionalGrade(Double optionalScore) {
+    public char calculateOptionalGrade() {
+        System.out.println("확인하고 싶은 학생의 공유번호를 입력해주세요");
+        Integer studentId = Integer.parseInt(scanner.nextLine());
+        Double optionalScore = Double.valueOf(Store.readScore(studentId).getScore());
         char grade = ' ';
         if (optionalScore >= 90 && optionalScore <= 100)
             grade = 'A';
@@ -52,7 +62,6 @@ public class CalculateService {
     public char getGradeBySubjectAndTimes() {
         Integer studentId = Integer.parseInt(scanner.nextLine());
         Integer subjectId = scanner.nextInt();
-//        Student student = Store.findStudent(studentId);
 //        subjectId  : subject 저장 구현되면 불러오는 로직 추가
         type = SubjectType.getTypeBySubjectId(subjectId);
         return type.equals(Type.ESSENTIAL_SUBJECT) ? calculateEssentialGrade(score) : calculateOptionalGrade(score);
@@ -61,7 +70,6 @@ public class CalculateService {
     // 학생, 과목 기준 추가
     public char averageGradeBySubject() {
         Integer studentId = Integer.parseInt(scanner.nextLine());
-//      Student  student = Store.findStudent(studentId);
         Integer subjectId = scanner.nextInt();
         type = SubjectType.getTypeBySubjectId(subjectId);
         Double avgScore, sum = 0.0;
@@ -75,7 +83,6 @@ public class CalculateService {
     // 학생, 회차별 평균
     public char averageGradeByTimes() {
         Integer studentId = Integer.parseInt(scanner.nextLine());
-//        Student student = Store.findStudent(studentId);
         Integer subjectId = scanner.nextInt();
         type = SubjectType.getTypeBySubjectId(subjectId);
         Double avgScore, sum = 0.0;
