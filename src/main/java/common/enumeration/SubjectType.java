@@ -1,24 +1,23 @@
 package common.enumeration;
-
 import java.util.Objects;
-
 public enum SubjectType {
-
-    JAVA(Type.ESSENTIAL_SUBJECT),
-    OOP(Type.ESSENTIAL_SUBJECT),
-    SPRING(Type.ESSENTIAL_SUBJECT),
-    JPA(Type.ESSENTIAL_SUBJECT),
-    MYSQL(Type.ESSENTIAL_SUBJECT),
-    DESIGNPATTERN(Type.OPTIONAL_SUBJECT),
-    SPRINGSEQURITY(Type.OPTIONAL_SUBJECT),
-    REDIS(Type.OPTIONAL_SUBJECT),
-    MONGODB(Type.OPTIONAL_SUBJECT);
-
+    JAVA(1,Type.ESSENTIAL_SUBJECT),
+    OOP(2,Type.ESSENTIAL_SUBJECT),
+    SPRING(3,Type.ESSENTIAL_SUBJECT),
+    JPA(4,Type.ESSENTIAL_SUBJECT),
+    MYSQL(5,Type.ESSENTIAL_SUBJECT),
+    DESIGNPATTERN(6,Type.OPTIONAL_SUBJECT),
+    SPRINGSEQURITY(7,Type.OPTIONAL_SUBJECT),
+    REDIS(8,Type.OPTIONAL_SUBJECT),
+    MONGODB(9,Type.OPTIONAL_SUBJECT);
+    private final Integer id;
     private final Type type;
-
-    SubjectType(Type type){
-
+    SubjectType(Integer id, Type type){
+        this.id = id;
         this.type = type;
+    }
+    public  Integer getId(){
+        return id;
     }
     public Type getType() {
         return type;
@@ -31,5 +30,9 @@ public enum SubjectType {
         }
         return null;
     }
-
 }
+
+
+
+
+

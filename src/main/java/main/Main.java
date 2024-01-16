@@ -1,7 +1,6 @@
-package Main;
+package main;
 
-import Service.*;
-import domain.Score;
+import service.*;
 
 import java.util.Scanner;
 
@@ -15,20 +14,20 @@ public class Main {
         StudentReader studentReader = new StudentReader();
         StudentDeleter studentDeleter = new StudentDeleter();
         CalculateService calculateService = new CalculateService();
-        Score putScore = new Score();
+        ScoreAppender ScoreAppender = new ScoreAppender();
+
             while (true) {
                 screenService.mainPage();
                 String input = sc.nextLine();
                 switch (input) {
                     case "1" -> {
                         studentAppender.append();
-                        putScore.setInitialScoreData(studentAppender.getIDforscore());
                     }
                     case "2" -> {
                         studentReader.read();
                     }
                     case "3" -> {
-                        putScore.RecordScore();
+                        ScoreAppender.scoreAppend();
                     }
                     case "4" -> {
                         studentDeleter.delete();

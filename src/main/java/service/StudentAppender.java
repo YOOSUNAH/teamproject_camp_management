@@ -1,4 +1,4 @@
-package Service;
+package service;
 
 import common.enumeration.SubjectType;
 import domain.Student;
@@ -13,20 +13,35 @@ public class StudentAppender {
     ScreenService screenService = new ScreenService();
 
     Integer ID = 0;
-
+    Integer showStudentId = 1;
     public void append() {
-        screenService.inputStudentIdNumber();
-        Integer studentId = Integer.parseInt(sc.nextLine());
-        Integer ID = studentId;
+        // 1.수강생 정보 입력하기
+            System.out.println("당신의 고유 번호는 " + showStudentId + "번 입니다.");
+            showStudentId++;
+        // id 중복 확인
+        boolean idcheck = true;
+        Integer studentId = 0;
+        Integer ID;
+        while (idcheck) {
+            screenService.inputStudentIdNumber();
+            studentId = Integer.parseInt(sc.nextLine());
+            if (Store.returnkey(studentId)) {
+                System.out.println("ID값이 중복되었습니다. 화면에 나온 올바른 고유번호를 입력해주세요."); //경고문구 출력
+            } else {
+                idcheck = false;
+            }
+        }
+        ID = studentId;
+        //
         screenService.inputStudentName();
         String studentName = sc.nextLine();
         List<SubjectType> essentialSubjects = addEssentialSubjects();
         List<SubjectType> optionalSubjects = addOptionalSubjects();
         Student student = new Student(
-                studentId,
-                studentName,
-                essentialSubjects,
-                optionalSubjects
+            studentId,
+            studentName,
+            essentialSubjects,
+            optionalSubjects
         );
         Store.addStudent(student);
     }
@@ -89,7 +104,8 @@ public class StudentAppender {
         }
         return optionalSubjects;
     }
-    public Integer getIDforscore(){
+
+    public Integer getIDforscore() {
         return ID;
 
     }

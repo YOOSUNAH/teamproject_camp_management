@@ -1,11 +1,8 @@
-package Service;
+package service;
 
-import common.enumeration.SubjectType;
 import domain.Student;
 import store.Store;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class StudentReader {
@@ -22,7 +19,7 @@ public class StudentReader {
             return;
         }
         System.out.println(student.getStudentName() + "이 수강한 과목");
-        System.out.println("필수 과목 : " + student.essentialSubjects() +"\n선택 과목 : "+ student.optionalSubjects());
+        System.out.println("필수 과목 : " + student.getEssentialSubjects() +"\n선택 과목 : "+ student.getOptionalSubjects());
     }
 }
 

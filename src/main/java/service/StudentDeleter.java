@@ -1,4 +1,4 @@
-package Service;
+package service;
 
 import domain.Student;
 import store.Store;
