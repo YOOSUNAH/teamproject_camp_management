@@ -24,15 +24,15 @@ public class Score {
     public Integer getStudentId() {
         return studentId;
     }
-    public SubjectType getSubjectID() {
+    public SubjectType getSubjectID() {  // 무슨 과목인지
         return subjectID;
     }
 
-    public Integer getRound() {
+    public Integer getRound() {  // 회차
         return round;
     }
 
-    public  Integer getScore() {
+    public  Integer getScore() {  // 점수
         return score;
     }
 

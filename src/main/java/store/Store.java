@@ -4,12 +4,14 @@ import domain.Score;
 import domain.Student;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Map;
 
 public class Store {
 
     // 수강생 정보를 저장하고, 조회하고, 삭제하는 인터페이스만 두기!
+    // Student( Id, 이름, 과목 목록)
 
     private static Map<Integer, Student> students = new HashMap<>();
 
@@ -37,6 +39,14 @@ public class Store {
 
     // 학생 Id,  Score( 과목Id, 회차, 점수)
     private static Map<Integer, Score> scores = new HashMap<>();
+
+
+    // 회차 - 점수
+    private static Map<Integer, Integer> scoresByRound = new HashMap<>();
+//    public static void addScoresByRound(Score score, Integer round){
+//        scoresByRound.put(score.getRound().get(round),score.getScore().get(round));
+//    }
+    //
 
     public static void addScore(Integer studentId, Score score) {
         scores.put(studentId, score);
