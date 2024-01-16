@@ -4,6 +4,7 @@ import domain.Score;
 import domain.Student;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Store {
@@ -27,13 +28,14 @@ public class Store {
     public static boolean returnkey(Integer studentId) {
         return students.containsKey(studentId);
     }
+
+
+    // 학생 Id,  Score( 과목Id, 회차, 점수)
     private static Map<Integer, Score> scores = new HashMap<>();
 
-    public static void addScore(Student student, Score score) {
-        scores.put(student.getStudentId(), score);
+    public static void addScore(Score score) {
+        scores.put(score.getStudentId(), score);
     }
-    public static Score readScore(Integer studentId) {
-        return scores.get(studentId);
-    }
+
 
 }
